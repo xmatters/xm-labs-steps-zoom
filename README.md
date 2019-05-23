@@ -1,4 +1,4 @@
-# Zoom <--> xMatters integration
+# Zoom Outbound (from xMatters) integration
 This is part of the xMatters Labs awesome listing. For others, see [here](https://github.com/xmatters/xMatters-Labs)
 With this library, notification recipients can quickly create a meeting in Zoom and use the Join URL to invite others to the meeting
 
