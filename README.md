@@ -1,6 +1,7 @@
 # Zoom Outbound (from xMatters) integration
-This is part of the xMatters Labs awesome listing. For others, see [here](https://github.com/xmatters/xMatters-Labs)
-With this library, notification recipients can quickly create a meeting in Zoom and use the Join URL to invite others to the meeting
+This is part of the xMatters Labs awesome listing. For others, see [here](https://github.com/xmatters/xMatters-Labs).
+
+With this library, notification recipients can quickly create a meeting in Zoom and use the outputted Join URL to invite others to the meeting.
 
 This document details how to install and use this integration. 
 
@@ -13,7 +14,7 @@ This document details how to install and use this integration.
 ---------
 # Pre-Requisites
 * xMatters account - If you don't have one, [get one](https://www.xmatters.com)! 
-* An xMatters Communication Plan, 
+* An xMatters Communication Plan
 * Zoom account - If you don't have one, [get one](https://zoom.us/)!
 
 # Files
@@ -24,7 +25,7 @@ Zoom is a meeting solution known for its reliability and ease of use. This integ
 
 # Installation
 ## Prerequisites:
-1. An existing Communication Plan in xMatters for which you would like to add a Zoom `Create a Meeting` response option
+An existing Communication Plan in xMatters for which you would like to add a Zoom `Create a Meeting` response option
 
 ## Creating a Zoom Application
 In order to create a Zoom meeting, you need to have an account-level marketplace app in Zoom that uses JWT Credentials, this will show you how to create one—if you already have one, skip this section but make sure to follow step (9) to create a JWT Token
@@ -39,7 +40,7 @@ In order to create a Zoom meeting, you need to have an account-level marketplace
 6. Click **Create**
 7. Fill out the basic information for the app, then click **Continue**
 ![basic-info](./media/basic-info.png)
-8. On the **App Credentials** page, open the **View JWT Token** dropdown, then select the **Other** option for **Expire in:**, and fill in the date to be something a long time from now (for example: noon on January 1, 3000)
+8. On the **App Credentials** page, open the **View JWT Token** dropdown, then select the **Other** option for `Expiration Time`, and fill in the date to be something a long time from now (for example: noon on January 1, 3000, i.e. `12:00 01/01/3000`)
 * Note: This is not very secure, it is more advisable to use the **1 week** option, and then update the JWT Token value inside your flow in xMatters every week, but this can become cumbersome
 9. Copy the **JWT Token** value and keep it on a notepad to add to xMatters later
 ![generate-token](./media/generate-token.png)
@@ -51,6 +52,7 @@ In order to create a Zoom meeting, you need to have an account-level marketplace
 3. In the Integration Builder, click on **Edit Endpoints**
 ![edit-endpoints](./media/edit-endpoints.png)
 4. Click on **Add Endpoint**, name it `Zoom`, set the Base URL to `https://api.zoom.us/v2`, then click **Save Changes** and **Close**
+![add-endpoint](./media/add-endpoint.png)
 5. Click on the **Forms** tab
 ![forms-tab](./media/forms-tab.png)
 6. For the Form you would like to add Zoom options to, click on **Edit** > **Responses**
@@ -65,6 +67,7 @@ In order to create a Zoom meeting, you need to have an account-level marketplace
 11. On the righthand side, click on the **Custom** tab, then click **+ Create a custom action**
 ![create-action](./media/create-action.png)
 12. In the settings tab, fill out the info as follows, then click **Save**:
+
 | Option                     | Value                                   |
 | ---------------------- | ------------------------------- |
 | Name                      | Create Zoom Meeting         |
@@ -72,7 +75,9 @@ In order to create a Zoom meeting, you need to have an account-level marketplace
 | Include Endpoint    | **✓**                                     |
 | Endpoint Type        | Allow Any                             |
 | Endpoint Label       | Zoom                                   |
+
 13. In the inputs tab, add these five inputs, then click **Save**:
+
 | Name | Required Field | Minimum Length | Maximum Length | Help Text | Default Value | Multiline |
 | ------- | ---------------- | -------------------- | -------------------- | ----------- | --------------- | --------- |
 | JWT Token | **✓** | 0 | 2000 | Zoom JWT Token |  |  |
@@ -85,15 +90,18 @@ In order to create a Zoom meeting, you need to have an account-level marketplace
 15. In the script tab, paste in [this](./script.js) script, then click **Save**
 16. Now you've made your custom action, which you can reuse as much as you want, changing the `schedule_for` input to change who is the host, and using it for as many `topic`s as you would like (Note the `JWT Token` generally will not change)
 
+
 ## Adding the step to a flow
 1. In your flow, click and drag the custom **Create Zoom Meeting** action into the flow
 ![drag-action](./media/drag-action.png)
 2. Connect your Zoom **Create a meeting** response option (or any other step that you would like to fire a Zoom meeting from!) to your custom **Create Zoom meeting** action in the flow
 3. Double click the **Create Zoom meeting** custom step
 4. Fill in the input values in the **Setup** tab, for example
+
 | JWT Token | schedule_for | topic | agenda | password | enforce_login |
 | --- | --- | --- | --- | --- | --- |
 | [Long JWT Token you copy from Zoom] | example@email.com | meeting topic | meeting description | zoomzoom | False |
+
 5. In the **Endpoint** tab, open the dropdown and select the **Zoom** Endpoint
 6. Click OK to save the custom step, then click **Save** to save the flow
 7. **TODO** Add another step that sends an email back to the user with the Join URL and Start URL 
