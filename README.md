@@ -95,6 +95,7 @@ In order to create a Zoom meeting, you need to have an account-level marketplace
 1. In your flow, click and drag the custom **Create Zoom Meeting** action into the flow
 ![drag-action](./media/drag-action.png)
 2. Connect your Zoom **Create a meeting** response option (or any other step that you would like to fire a Zoom meeting from!) to your custom **Create Zoom meeting** action in the flow
+![connect-flow](./media/connect-flow.png)
 3. Double click the **Create Zoom meeting** custom step
 4. Fill in the input values in the **Setup** tab, for example
 
