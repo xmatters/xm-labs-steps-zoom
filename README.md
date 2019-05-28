@@ -47,7 +47,7 @@ In order to create a Zoom meeting, you need to have an account-level marketplace
 
 ## Adding Zoom to xMatters
 1. Inside your xMatters instance, navigate to the Developer tab
-2. Locate the Communication Plan you would like to add Zoom options to, then click **Edit** > **Forms**
+2. Locate the Communication Plan you would like to add Zoom options to, then click **Edit** > **Flows**
 ![xm-plan](./media/xm-plan.png)
 3. For the Form you would like to add Zoom options to, click on **Create Flow**
 ![create-flow](./media/create-flow.png)
