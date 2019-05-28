@@ -43,18 +43,18 @@ In order to create a Zoom meeting, you need to have an account-level marketplace
 8. On the **App Credentials** page, open the **View JWT Token** dropdown, then select the **Other** option for `Expiration Time`, and fill in the date to be something a long time from now (for example: noon on January 1, 3000, i.e. `12:00 01/01/3000`)
 * Note: This is not very secure, it is more advisable to use the **1 week** option, and then update the JWT Token value inside your flow in xMatters every week, but this can become cumbersome
 9. Copy the **JWT Token** value and keep it on a notepad to add to xMatters later
-![generate-token](./media/generate-token.png)
+![zoom-token](./media/zoom-token.png)
 
 ## Adding Zoom to xMatters
 1. Inside your xMatters instance, navigate to the Developer tab
 2. Locate the Communication Plan you would like to add Zoom options to, then click **Edit** > **Flows**
-![xm-plan](./media/xm-plan.png)
+![edit-flow](./media/edit-flow.png)
 3. For the Form you would like to add Zoom options to, click on **Create Flow**
-![create-flow](./media/create-flow.png)
+![create-a-flow](./media/create-a-flow.png)
 4. Click and drag **Responses** into the flow, then click **Save**
 ![drag-responses](./media/drag-responses.png)
 5. Create a new Response by clicking **Add Response**
-![add-response](./media/add-response.png)
+![add-response](./media/add-response-flow.png)
 6. Click Create Response to add a new response
 ![create-response](./media/create-response.png)
 7. Fill in a new Response that describe a step to create a Zoom meeting, then click **Save**
