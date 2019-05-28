@@ -47,26 +47,21 @@ In order to create a Zoom meeting, you need to have an account-level marketplace
 
 ## Adding Zoom to xMatters
 1. Inside your xMatters instance, navigate to the Developer tab
-2. Locate the Communication Plan you would like to add Zoom options to, then click **Edit** > **Integration Builder**
+2. Locate the Communication Plan you would like to add Zoom options to, then click **Edit** > **Forms**
 ![xm-plan](./media/xm-plan.png)
-3. In the Integration Builder, click on **Edit Endpoints**
-![edit-endpoints](./media/edit-endpoints.png)
-4. Click on **Add Endpoint**, name it `Zoom`, set the Base URL to `https://api.zoom.us/v2`, then click **Save Changes** and **Close**
-![add-endpoint](./media/add-endpoint.png)
-5. Click on the **Forms** tab
-![forms-tab](./media/forms-tab.png)
-6. For the Form you would like to add Zoom options to, click on **Edit** > **Responses**
-![zoom-form](./media/zoom-form.png)
-7. Add a response option to create a meeting in Zoom, then click **Save Changes**
-![add-response](./media/add-response.png)
-8. Use the breadcrumbs to return to the Communication Plan, then click **Flows**
-9. For the form you just created the Zoom response option in, click **Create a flow**
+3. For the Form you would like to add Zoom options to, click on **Create Flow**
 ![create-flow](./media/create-flow.png)
-10. Click and drag **Responses** into the flow, then click **Save**
+4. Click and drag **Responses** into the flow, then click **Save**
 ![drag-responses](./media/drag-responses.png)
-11. On the righthand side, click on the **Custom** tab, then click **+ Create a custom action**
+5. Create a new Response by clicking **Add Response**
+![add-response](./media/add-response.png)
+6. Click Create Response to add a new response
+![create-response](./media/create-response.png)
+7. Fill in a new Response that describe a step to create a Zoom meeting, then click **Save**
+![fill-response](./media/fill-response.png)
+8. On the righthand side, click on the **Custom** tab, then click **+ Create a custom action**
 ![create-action](./media/create-action.png)
-12. In the settings tab, fill out the info as follows, then click **Save**:
+9. In the settings tab, fill out the info as follows, then click **Save**:
 
 | Option                     | Value                                   |
 | ---------------------- | ------------------------------- |
@@ -76,7 +71,7 @@ In order to create a Zoom meeting, you need to have an account-level marketplace
 | Endpoint Type        | Allow Any                             |
 | Endpoint Label       | Zoom                                   |
 
-13. In the inputs tab, add these five inputs, then click **Save**:
+10. In the inputs tab, add these six inputs, then click **Save**:
 
 | Name | Required Field | Minimum Length | Maximum Length | Help Text | Default Value | Multiline |
 | ------- | ---------------- | -------------------- | -------------------- | ----------- | --------------- | --------- |
@@ -86,9 +81,10 @@ In order to create a Zoom meeting, you need to have an account-level marketplace
 | agenda |  | 0 | 2000 | Meeting description |  |  |
 | password |  | 0 | 10 | Password to join the meeting. May only contain [a-z A-Z 0-9 @ - _ *]. Max of 10 characters | You can choose to put a default password here or leave it blank |  |
 | enforce_login |  | 0 | 2000 | Whether or not user are required to be signed in to their Zoom account to join the meeting (Can be either True or False) | False |  | 
-14. In the outputs tab, add two outputs, one named **Join URL**, and one named **Start URL**, then click **Save**
-15. In the script tab, paste in [this](./script.js) script, then click **Save**
-16. Now you've made your custom action, which you can reuse as much as you want, changing the `schedule_for` input to change who is the host, and using it for as many `topic`s as you would like (Note the `JWT Token` generally will not change)
+
+11. In the outputs tab, add two outputs, one named **Join URL**, and one named **Start URL**, then click **Save**
+12. In the script tab, paste in [this](./script.js) script, then click **Save**
+13. Now you've made your custom action, which you can reuse as much as you want, changing the `schedule_for` input to change who is the host, and using it for as many `topic`s as you would like (Note the `JWT Token` generally will not change)
 
 
 ## Adding the step to a flow
@@ -103,6 +99,13 @@ In order to create a Zoom meeting, you need to have an account-level marketplace
 | --- | --- | --- | --- | --- | --- |
 | [Long JWT Token you copy from Zoom] | example@email.com | meeting topic | meeting description | zoomzoom | False |
 
-5. In the **Endpoint** tab, open the dropdown and select the **Zoom** Endpoint
-6. Click OK to save the custom step, then click **Save** to save the flow
-7. **TODO** Add another step that sends an email back to the user with the Join URL and Start URL 
+5. In the **Endpoint** tab, click **Create New Endpoint**
+![create-endpoint](./media/create-endpoint.png)
+6. Fill in the endpoint with the following values, then click **Save Changes**
+
+| Name | Base URL | Trust self-signed certficiates | Authentication Type |
+| --- | --- | --- | --- |
+| Zoom | https://api.zoom.us/v2 | | None |
+
+7. Close out of the endpoint editor, then click OK to save the custom step, then click **Save** to save the flow
+8. **TODO** Add another step that sends an email/message back to the user with the Join URL and Start URL 
