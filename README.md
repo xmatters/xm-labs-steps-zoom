@@ -109,3 +109,20 @@ In order to create a Zoom meeting, you need to have an account-level marketplace
 
 7. Close out of the endpoint editor, then click OK to save the custom step, then click **Save** to save the flow
 8. **TODO** Add another step that sends an email/message back to the user with the Join URL and Start URL 
+
+# Testing
+To test the integration, fire the xMatters outbound notifier and select the **Create Zoom Meeting** response option. If it works, the `Join URL` and `Start URL` will be populated with the Zoom meeting join link.
+* To see the Join URL, edit the script for the custom step inside the Flow Designer, adding a line at the end with `console.log(output['Join URL'])`
+* Now, when the **Create Zoom Meeting** response fires, you should be able to see the Join URL in the activity stream (access this by clicking on **Activity** inside the Flow Designer)
+
+# Troubleshooting
+If the integration is not working properly, there are a few places where it could be going wrong.
+## Zoom side
+1. First, check to make sure you have the correct credentials. To do this, navigate to the [Zoom marketplace](https://marketplace.zoom.us/), log in with your account, then click on Manage
+2. Click on your JWT app
+3. Go to the App Credentials tab, and check that your API Key, API Secret, and JWT Token are the same as in xMatters
+
+## xMatters side
+1. Once you've made sure that your API Key, API Secret, and JWT Token match those in Zoom, check that you defined all the inputs and outputs correctly
+2. If you have defined everything correctly, make sure you are using the outputs in the way you want to (for example—inside a Slack message)
+3. If all of these are correctly defined, check the log for the Flow (by clicking on **Activity** inside the Flow Designer and selecting the Zoom step) for more guidance
