@@ -62,7 +62,7 @@ In order to create a Zoom meeting, you need to have an account-level marketplace
 | Name | Required Field | Minimum Length | Maximum Length | Help Text | Default Value | Multiline |
 | ------- | ---------------- | -------------------- | -------------------- | ----------- | --------------- | --------- |
 | JWT Token | **✓** | 0 | 2000 | Zoom JWT Token |  |  |
-| schedule_for | **✓** | 0 | 2000 | Email or Zoom User ID of host for meeting | You can add a default host here or leave it blank |  |
+| schedule_for | **✓** | 0 | 2000 | Email or Zoom User ID of host for meeting | Note that this should be the user who generated the token above. |  |
 | topic | **✓** | 0 | 2000 | Topic of Zoom meeting |  |  |
 | agenda |  | 0 | 2000 | Meeting description |  |  |
 | password |  | 0 | 10 | Password to join the meeting. May only contain [a-z A-Z 0-9 @ - _ *]. Max of 10 characters | You can choose to put a default password here or leave it blank |  |
