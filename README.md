@@ -76,7 +76,8 @@ In order to create a Zoom meeting, you need to have an account-level marketplace
 | --- |
 | Join URL |
 | Start URL |
-| Save |
+
+Click Save. 
 
 ### Script
 
