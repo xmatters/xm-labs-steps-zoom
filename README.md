@@ -33,6 +33,8 @@ In order to create a Zoom meeting, you need to have an account-level marketplace
 1. Navigate to the [Zoom Marketplace](https://marketplace.zoom.us/) and log in with your Zoom account
 2. Click on **Develop** > **Build App**
 ![build app](./media/build-app.png)
+2. Choose **JWT** as the App type
+![choose_type](./media/choosetype.png)
 3. Give your app a name
 4. Turn off the **Intend to publish this app on Zoom Marketplace** slider
 5. Check the option for **Account-level app**, and choose **JWT API Credentials** as the credential option
