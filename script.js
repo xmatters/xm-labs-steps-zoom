@@ -11,8 +11,16 @@ var apiRequest = http.request({
     'method': 'POST'
 });
 
+var payload = {
+    "topic":    input['topic'],
+    "password": input['password'],
+    "agenda":   input['agenda'],
+    "settings": {
+        "join_before_host": input['join_before_host']
+    }
+};
 
-var apiResponse = apiRequest.write(input);
+var apiResponse = apiRequest.write( payload );
 if (apiResponse.statusCode >= 200 && apiResponse.statusCode < 300) {
     var resp = JSON.parse(apiResponse.body);
     output['Join URL'] = resp['join_url'];
