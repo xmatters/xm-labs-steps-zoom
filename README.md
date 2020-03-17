@@ -18,7 +18,7 @@ This document details how to install and use this integration.
 * Zoom account - If you don't have one, [get one](https://zoom.us/)!
 
 # Files
-* [zoom.js](./zoom.js) - This is the script to paste into the custom step, which creates the meeting and gets the URL
+* [script.js](./script.js) - This is the script to paste into the custom step, which creates the meeting and gets the URL
 
 # Introduction - How it works
 Zoom is a meeting solution known for its reliability and ease of use. This integration with xMatters makes it easy to create and invite people to join a Zoom meeting from an email, allowing anyone you give the link (with a password if you so choose) to join the meeting with just a click.
