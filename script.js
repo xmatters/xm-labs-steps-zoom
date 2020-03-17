@@ -7,7 +7,7 @@ var apiRequest = http.request({
         'Content-type': 'application/json',
         'Authorization': 'Bearer ' + token
     },
-    'path': '/users/' + input['schedule_for'] + '/meetings',
+    'path': '/users/' + encodeURIComponent( input['schedule_for'] ) + '/meetings',
     'method': 'POST'
 });
 
