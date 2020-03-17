@@ -68,7 +68,7 @@ In order to create a Zoom meeting, you need to have an account-level marketplace
 | topic | **✓** | 0 | 2000 | Topic of Zoom meeting |  |  |
 | agenda |  | 0 | 2000 | Meeting description |  |  |
 | password |  | 0 | 10 | Password to join the meeting. May only contain `a-z A-Z 0-9 @ - _ *`. Max of 10 characters |  | You can choose to put a default password here or leave it blank |
-| enforce_login |  | 0 | 2000 | Whether or not user are required to be signed in to their Zoom account to join the meeting (Can be either True or False) | False |  | 
+| enforce_login |  | 0 | 2000 | Whether or not user are required to be signed in to their Zoom account to join the meeting (Can be either True or False) | false |  | 
 
 ### Outputs
 
