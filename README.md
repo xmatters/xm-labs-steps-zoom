@@ -56,7 +56,7 @@ In order to create a Zoom meeting, you need to have an account-level marketplace
 | Name                      | Create Zoom Meeting         |
 | Description             | Creates a meeting in Zoom |
 | Include Endpoint    | **✓**                                     |
-| Endpoint Type        | Allow Any                             |
+| Endpoint Type        | No Authentication                            |
 | Endpoint Label       | Zoom                                   |
 
 ### Inputs
@@ -102,7 +102,7 @@ In the script tab, paste in this [script](./script.js)
 
 | Name | Base URL | Trust self-signed certficiates | Authentication Type |
 | --- | --- | --- | --- |
-| Zoom | https://api.zoom.us/v2 | | None |
+| Zoom | https://api.zoom.us/v2 | | No Authentication |
 
 7. Close out of the endpoint editor, then click OK to save the custom step, then click **Save** to save the flow
 
