@@ -14,11 +14,11 @@ This document details how to install and use this integration.
 ---------
 # Pre-Requisites
 * xMatters account - If you don't have one, [get one](https://www.xmatters.com)! 
-* An xMatters Communication Plan
+* An xMatters Workflow
 * Zoom account - If you don't have one, [get one](https://zoom.us/)!
 
 # Files
-* [script.js](./script.js) - This is the script to paste into the custom step, which creates the meeting and gets the URL
+* [ZoomStep.zip](ZoomStep.zip) - Workflow containing the Create Meeting step.
 
 # Introduction - How it works
 Zoom is a meeting solution known for its reliability and ease of use. This integration with xMatters makes it easy to create and invite people to join a Zoom meeting from an email, allowing anyone you give the link (with a password if you so choose) to join the meeting with just a click.
@@ -47,42 +47,11 @@ In order to create a Zoom meeting, you need to have an account-level marketplace
 9. Copy the **JWT Token** value and keep it on a notepad to add to xMatters later
 ![zoom-token](./media/zoom-token.png)
 
-## Create Meeting Step
+## xMatters Setup
 
-### Settings
-
-| Option                     | Value                                   |
-| ---------------------- | ------------------------------- |
-| Name                      | Create Zoom Meeting         |
-| Description             | Creates a meeting in Zoom |
-| Include Endpoint    | **✓**                                     |
-| Endpoint Type        | No Authentication                            |
-| Endpoint Label       | Zoom                                   |
-
-### Inputs
-
-| Name | Required Field | Minimum Length | Maximum Length | Help Text | Default Value | Notes |
-| ------- | ---------------- | -------------------- | -------------------- | ----------- | --------------- | --------- |
-| JWT Token | **✓** | 0 | 2000 | Zoom JWT Token |  |  |
-| schedule_for | **✓** | 0 | 2000 | Email or Zoom User ID of host for meeting |  | Note that this should be the user who generated the token above. |
-| topic | **✓** | 0 | 2000 | Topic of Zoom meeting |  |  |
-| agenda |  | 0 | 2000 | Meeting description |  |  |
-| join_before_host |  | 0 | 2000 | Allow attendees to join the conference without the host | false  |  |
-| password |  | 0 | 10 | Password to join the meeting. May only contain `a-z A-Z 0-9 @ - _ *`. Max of 10 characters |  | You can choose to put a default password here or leave it blank |
-| enforce_login |  | 0 | 2000 | Whether or not user are required to be signed in to their Zoom account to join the meeting (Can be either True or False) | false |  | 
-
-### Outputs
-
-| Name |
-| --- |
-| Join URL |
-| Start URL |
-
-Click Save. 
-
-### Script
-
-In the script tab, paste in this [script](./script.js)
+1. Download the [ZoomStep.zip](ZoomStep.zip) file onto your local computer
+2. Navigate to the Workflows tab of your xMatters instance
+3. Click Import, and select the zip file you just downloaded
 
 
 ## Usage
@@ -123,3 +92,43 @@ If the step is not working properly, there are a few places where it could be go
 1. Once you've made sure that your API Key, API Secret, and JWT Token match those in Zoom, check that you defined all the inputs and outputs correctly
 2. If you have defined everything correctly, make sure you are using the outputs in the way you want to (for example—inside a Slack message)
 3. If all of these are correctly defined, check the log for the Flow (by clicking on **Activity** inside the Flow Designer and selecting the Zoom step) for more guidance
+
+
+# Step Details
+
+### Settings
+
+| Option                     | Value                                   |
+| ---------------------- | ------------------------------- |
+| Name                      | Create Zoom Meeting         |
+| Description             | Creates a meeting in Zoom |
+| Include Endpoint    | **✓**                                     |
+| Endpoint Type        | No Authentication                            |
+| Endpoint Label       | Zoom                                   |
+
+### Inputs
+
+| Name | Required Field | Minimum Length | Maximum Length | Help Text | Default Value | Notes |
+| ------- | ---------------- | -------------------- | -------------------- | ----------- | --------------- | --------- |
+| JWT Token | **✓** | 0 | 2000 | Zoom JWT Token |  |  |
+| schedule_for | **✓** | 0 | 2000 | Email or Zoom User ID of host for meeting |  | Note that this should be the user who generated the token above. |
+| topic | **✓** | 0 | 2000 | Topic of Zoom meeting |  |  |
+| agenda |  | 0 | 2000 | Meeting description |  |  |
+| join_before_host |  | 0 | 2000 | Allow attendees to join the conference without the host | false  |  |
+| password |  | 0 | 10 | Password to join the meeting. May only contain `a-z A-Z 0-9 @ - _ *`. Max of 10 characters |  | You can choose to put a default password here or leave it blank |
+| enforce_login |  | 0 | 2000 | Whether or not user are required to be signed in to their Zoom account to join the meeting (Can be either True or False) | false |  | 
+
+### Outputs
+
+| Name |
+| --- |
+| Join URL |
+| Start URL |
+
+
+
+### Script
+
+In the script tab, paste in this [script](./script.js)
+
+
